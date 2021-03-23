@@ -8,7 +8,8 @@ public class EnemyShotShell : MonoBehaviour
     [SerializeField]
     private GameObject enemyShellPrefab;
     //private AudioClip shotSound;
-    private int interval;
+    private int timer;
+    public int interval;
 
     // Start is called before the first frame update
     void Start()
@@ -19,12 +20,12 @@ public class EnemyShotShell : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        interval += 1;
+        timer += 1;
         
-        if(interval % 60 == 0)
+        if(timer % interval == 0)
         {
             GameObject enemyShell = Instantiate(enemyShellPrefab, transform.position, Quaternion.identity);
-            //enemyShell.GetComponent<Rigidbody>().AddForce(-enemyShell.transform.forward * shotSpeed);
+            enemyShell.GetComponent<Rigidbody>().AddForce(-enemyShell.transform.forward * shotSpeed);
         }
     }
 }

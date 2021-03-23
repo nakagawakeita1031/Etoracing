@@ -25,8 +25,7 @@ public class EtoInfo : MonoBehaviour
         //ポイントの設定
         this.point = point;
 
-        //ポイントの表示
-        DisplayPoint();
+
 
         //干支の画像の設定(画像をResourceフォルダより読み込む。別の方法でも可)
         etoImage.sprite = Resources.Load<Sprite>("EtoIcon/" + etoTypeNum);
@@ -38,7 +37,8 @@ public class EtoInfo : MonoBehaviour
             isMyInfo = true;
         }
 
-
+        //ポイントの表示
+        DisplayPoint();
     }
     /// <summary>
     /// ポイントの表示更新
