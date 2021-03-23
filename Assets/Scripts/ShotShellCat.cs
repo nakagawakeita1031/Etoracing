@@ -10,7 +10,7 @@ public class ShotShellCat : MonoBehaviour
     private GameObject shellCatPrefab;
 
     [SerializeField]
-    private AudioClip shotSE;
+    //private AudioClip shotSE;
 
     // Start is called before the first frame update
     void Start()
@@ -22,12 +22,8 @@ public class ShotShellCat : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-            Vector3 direction = ray.direction;
-
             //Shellcatを生成
             GameObject shellCat = Instantiate(shellCatPrefab, transform.position, Quaternion.identity);
 
@@ -35,13 +31,13 @@ public class ShotShellCat : MonoBehaviour
             Rigidbody rb = shellCat.GetComponent<Rigidbody>();
 
             //ShellCatをz方向へ発射する
-            rb.AddForce(direction.normalized * shotSpeed);
+            rb.AddForce(transform.forward * shotSpeed);
 
             //５秒後に破壊
             Destroy(shellCat, 5.0f);
 
             //発射音
-            AudioSource.PlayClipAtPoint(shotSE, transform.position);
+            //AudioSource.PlayClipAtPoint(shotSE, transform.position);
 
         }
     }

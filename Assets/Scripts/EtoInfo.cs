@@ -31,7 +31,7 @@ public class EtoInfo : MonoBehaviour
         //干支の画像の設定(画像をResourceフォルダより読み込む。別の方法でも可)
         etoImage.sprite = Resources.Load<Sprite>("EtoIcon/" + etoTypeNum);
 
-        //rとの種類が猫の場合
+        //干支の種類が猫の場合
         if (this.etoType == EtoType.猫)
         {
             this.point = 0;
