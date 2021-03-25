@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public int playerHP;
+
     public float moveSpeedRate;
 
     // Start is called before the first frame update
@@ -12,6 +14,20 @@ public class PlayerController : MonoBehaviour
         
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Enemy")
+        {
+            playerHP -= 1;
+
+            Destroy(other.gameObject);
+
+            if (playerHP < 0)
+            {
+                Destroy(gameObject);
+            }
+        }
+    }
     // Update is called once per frame
     void Update()
     {

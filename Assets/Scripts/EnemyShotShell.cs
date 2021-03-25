@@ -26,6 +26,8 @@ public class EnemyShotShell : MonoBehaviour
         {
             GameObject enemyShell = Instantiate(enemyShellPrefab, transform.position, Quaternion.identity);
             enemyShell.GetComponent<Rigidbody>().AddForce(-enemyShell.transform.forward * shotSpeed);
+
+            Destroy(enemyShell, 5.0f);
         }
     }
 }

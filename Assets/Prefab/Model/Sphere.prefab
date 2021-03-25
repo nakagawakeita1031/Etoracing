@@ -14,9 +14,10 @@ GameObject:
   - component: {fileID: 3505849220529380189}
   - component: {fileID: 6157265812305973114}
   - component: {fileID: 1656482751590971158}
+  - component: {fileID: -6150097272541149449}
   m_Layer: 10
   m_Name: Sphere
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -92,7 +93,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2039263177840992793}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
@@ -110,7 +111,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shotSpeed: 300
-  enemyShellPrefab: {fileID: 8354961707148609359, guid: 4554bcf7b111aee46ade4f91273e777f, type: 3}
+  enemyShellPrefab: {fileID: 8354961707148609359, guid: 4554bcf7b111aee46ade4f91273e777f,
+    type: 3}
   interval: 1000
 --- !u!54 &1656482751590971158
 Rigidbody:
@@ -128,3 +130,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-6150097272541149449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2039263177840992793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5aafb12b05343824685fb9c6ea4754da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnemyHP: 1
+  effectPrefab: {fileID: 1775406099119076, guid: 379785de5e39005469c875710d3cc5a7,
+    type: 3}
