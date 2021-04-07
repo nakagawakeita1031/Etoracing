@@ -9,6 +9,7 @@ public class EnemyGenerator : MonoBehaviour
     private float CountUpTimer;
     public float EnemyMoveSpeed;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,5 +30,7 @@ public class EnemyGenerator : MonoBehaviour
 
             Enemy.GetComponent<Rigidbody>().AddForce(-Enemy.transform.forward * EnemyMoveSpeed);
         }
+
+
     }
 }
