@@ -5,6 +5,8 @@ using System.Linq;
 
 public class EtoInfoManager : MonoBehaviour
 {
+    public static EtoInfoManager instance;
+
     [SerializeField]
     private EtoInfo etoInfoPrefab; //EtoInfoクラスのアタッチされているゲームオブジェクトのプレフェブをアサイン
 
@@ -20,6 +22,28 @@ public class EtoInfoManager : MonoBehaviour
     private List<int> randomPointList = new List<int>(); //points配列を使って作るpointのリスト
 
     public EtoInfo myEtoInfo; //プレイヤーの干支情報
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    /// <summary>
+    /// EtoInfoListをEtoResultManagerに提供する
+    /// </summary>
+    /// <returns></returns>
+    public List<EtoInfo> GetEtoInfoList()
+    {
+        return etoInfoList;
+    }
 
     // Start is called before the first frame update
     void Start()
