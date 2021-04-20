@@ -9,13 +9,14 @@ public class ResultEtoInfo : MonoBehaviour
 
     public int rank;
 
-    public Text rankText;
+    public Image rankImg;
 
     public Image etoImage;
 
     public int score;
 
     public Text scoreText;
+
 
 
 
@@ -27,10 +28,10 @@ public class ResultEtoInfo : MonoBehaviour
 
         this.score = score;
 
-        if (EtoType != 猫)
+        if (this.etoType != EtoType.猫)
         {
             // 干支の画像の設定(画像を Resources フォルダより読み込む。別の方法でも可)
-            etoImage.sprite = Resources.Load<Sprite>("EtoIcon/" + etoType);
+            etoImage.sprite = Resources.Load<Sprite>("EtoIcon/" + (int)etoType);
         }
         else
         {
@@ -44,7 +45,8 @@ public class ResultEtoInfo : MonoBehaviour
 
     public void DisplayPoint()
     {
-        rankText.text = rank.ToString();
+        rankImg.sprite = Resources.Load<Sprite>("Rank/" + rank);
+
 
         scoreText.text = score.ToString();
     }

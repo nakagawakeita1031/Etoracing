@@ -5,7 +5,9 @@ using UnityEngine;
 public class EtoResultManager : MonoBehaviour
 {
     [SerializeField]
-    private ResultEtoInfo EtoPrefab;
+    private ResultEtoInfo etoPrefab;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -15,13 +17,12 @@ public class EtoResultManager : MonoBehaviour
 
     private void CreateResultEtoInfo()
     {
-        List<EtoInfo> etoInfoList = EtoInfoManager.instance.GetEtoInfoList();
 
-        for (int i = 0; i < etoInfoList.Count; i++)
+        for (int i = 0; i < EtoInfoManager.instance.etoInfoList.Count; i++)
         {
-            ResultEtoInfo ResultEtoPrefab = Instantiate(EtoPrefab, transform, false);
+            ResultEtoInfo resultEtoPrefab = Instantiate(etoPrefab, transform, false);
 
-            ResultEtoInfo.SetUpEtoInfo(etoInfoList[i].etoType, etoInfoList[i].point, i + 1);
+            resultEtoPrefab.SetUpEtoInfo(EtoInfoManager.instance.etoInfoList[i].etoType, i + 1, EtoInfoManager.instance.etoInfoList[i].point);
         }
     }
 

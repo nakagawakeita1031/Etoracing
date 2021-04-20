@@ -11,7 +11,7 @@ public class EtoInfoManager : MonoBehaviour
     private EtoInfo etoInfoPrefab; //EtoInfoクラスのアタッチされているゲームオブジェクトのプレフェブをアサイン
 
     [SerializeField, Header("干支のポイントによる降順の順位リスト")]
-    private List<EtoInfo> etoInfoList = new List<EtoInfo>();
+    public List<EtoInfo> etoInfoList = new List<EtoInfo>();
 
     [SerializeField, Header("ポイント用の乱数設定")]
     private int[] points;
