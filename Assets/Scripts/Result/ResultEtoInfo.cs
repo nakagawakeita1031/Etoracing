@@ -36,7 +36,7 @@ public class ResultEtoInfo : MonoBehaviour
         else
         {
             // 干支の画像の設定(画像を Resources フォルダより読み込む。別の方法でも可)
-            etoImage.sprite = Resources.Load<Sprite>("EtoIcon/" + etoType + 1);
+            etoImage.sprite = Resources.Load<Sprite>("EtoIcon/" + ((int)etoType + 1));
         }
 
         DisplayPoint();
