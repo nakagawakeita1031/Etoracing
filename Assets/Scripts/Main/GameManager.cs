@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -41,11 +42,15 @@ public class GameManager : MonoBehaviour
                 if (goalTime <= 0)
                 {
                     clear = true;
+
+                    SceneManager.LoadScene("Result");
                     Debug.Log("ゲームクリア状態");
                 }
 
                 //残り時間表示更新
                 textGoalTime.text = goalTime.ToString();
+
+                
 
             }
         }

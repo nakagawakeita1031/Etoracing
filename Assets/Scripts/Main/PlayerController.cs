@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -8,10 +10,13 @@ public class PlayerController : MonoBehaviour
 
     public float moveSpeedRate;
 
+    [SerializeField]
+    private Text HPLabel;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        HPLabel.text = "HP:" + playerHP;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -22,9 +27,12 @@ public class PlayerController : MonoBehaviour
 
             Destroy(other.gameObject);
 
-            if (playerHP < 0)
+            if (playerHP <= 0)
             {
                 Destroy(gameObject);
+
+                SceneManager.LoadScene("Result");
+                
             }
         }
     }
@@ -35,5 +43,7 @@ public class PlayerController : MonoBehaviour
         float horizontal = Input.GetAxis("Horizontal");
 
         transform.Translate(horizontal / moveSpeedRate, 0, 0);
+
+        HPLabel.text = "HP:" + playerHP;
     }
 }

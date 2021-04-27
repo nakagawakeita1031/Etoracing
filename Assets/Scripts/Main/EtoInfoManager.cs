@@ -16,7 +16,7 @@ public class EtoInfoManager : MonoBehaviour
     [SerializeField, Header("ポイント用の乱数設定")]
     private int[] points;
 
-    private const int maxEtoInfoNum = 13; //干支の最大数。定数として利用する場合にはconst修飾子を活用する
+    private const int maxEtoInfoNum = 3; //干支の最大数。定数として利用する場合にはconst修飾子を活用する
 
     [SerializeField]
     private List<int> randomPointList = new List<int>(); //points配列を使って作るpointのリスト
