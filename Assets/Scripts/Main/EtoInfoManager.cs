@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using UnityEngine.UI;
 
 public class EtoInfoManager : MonoBehaviour
 {
@@ -16,12 +17,13 @@ public class EtoInfoManager : MonoBehaviour
     [SerializeField, Header("ポイント用の乱数設定")]
     private int[] points;
 
-    private const int maxEtoInfoNum = 13; //干支の最大数。定数として利用する場合にはconst修飾子を活用する
+    //private const int maxEtoInfoNum; //干支の最大数。定数として利用する場合にはconst修飾子を活用する
 
     [SerializeField]
     private List<int> randomPointList = new List<int>(); //points配列を使って作るpointのリスト
 
     public EtoInfo myEtoInfo; //プレイヤーの干支情報
+
 
     private void Awake()
     {
@@ -65,7 +67,7 @@ public class EtoInfoManager : MonoBehaviour
     private void CreateEtoInfos()
     {
         //干支情報を最大数作る
-        for (int i = 0; i < maxEtoInfoNum; i++)
+        for (int i = 0; i < points.Length; i++)
         {
             //干支情報の生成
             EtoInfo etoInfo = Instantiate(etoInfoPrefab, transform, false);
@@ -77,7 +79,7 @@ public class EtoInfoManager : MonoBehaviour
             etoInfoList.Add(etoInfo);
 
             //最後の生成の場合、それをプレイヤーにする
-            if (i == maxEtoInfoNum - 1)
+            if (i == points.Length - 1)
             {
                 //プレイヤーの干支情報として設定
                 myEtoInfo = etoInfo;
@@ -94,7 +96,7 @@ public class EtoInfoManager : MonoBehaviour
         List<int> tempPointList = new List<int>(points);
 
         //干支の最大数を目標に繰り返し処理をする
-        for (int i = 0; i < maxEtoInfoNum; i++)
+        for (int i = 0; i < points.Length; i++)
         {
             //ランダムな値を取得(tempPointListの最大値は、for文が繰り返されるたびに1づつ減っていく)
             int index = Random.Range(0, tempPointList.Count);
@@ -126,6 +128,7 @@ public class EtoInfoManager : MonoBehaviour
 
         //ポイントの表示更新
         myEtoInfo.DisplayPoint();
+        Debug.Log("ポイント表示更新");
     }
 
 
@@ -133,13 +136,13 @@ public class EtoInfoManager : MonoBehaviour
     void Update()
     {
         //Debug用
-        if (Input.GetKeyDown(KeyCode.Z))
-        {
+        //if (Input.GetKeyDown(KeyCode.Z))
+        //{
             //ポイント加算
-            AddPoint(100);
+            //AddPoint(100);
 
             //ポイントの降順で順番のList並び替え
-            SortByPoint();
-        }
+            //SortByPoint();
+        //}
     }
 }

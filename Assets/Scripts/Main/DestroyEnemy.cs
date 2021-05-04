@@ -8,6 +8,17 @@ public class DestroyEnemy : MonoBehaviour
     [SerializeField]
     private GameObject effectPrefab;
 
+    [SerializeField]
+    private int scoreValue;
+    private ScoreManager sm;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        sm = GameObject.Find("ScoreLabel").GetComponent<ScoreManager>();
+    }
+
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("ShellCat"))
@@ -28,16 +39,13 @@ public class DestroyEnemy : MonoBehaviour
                 GameObject effect = Instantiate(effectPrefab, transform.position, Quaternion.identity);
 
                 Destroy(effect, 2.0f);
+
+                sm.AddScore(scoreValue);
             }
 
 
             
         }
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
     }
 
     // Update is called once per frame

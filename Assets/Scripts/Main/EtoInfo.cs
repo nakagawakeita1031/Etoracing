@@ -12,6 +12,11 @@ public class EtoInfo : MonoBehaviour
 
     public bool isMyInfo; //NPC or Player trueをPlayer
 
+    private void Start()
+    {
+        //txtPoint = GetComponent<Text>();
+        txtPoint.text = "SCORE:" + point;
+    }
     /// <summary>
     /// 干支情報の設定
     /// </summary>
@@ -47,5 +52,6 @@ public class EtoInfo : MonoBehaviour
     {
         //ポイントの表示
         txtPoint.text = point.ToString();
+        txtPoint.text = "SCORE:" + point;
     }
 }

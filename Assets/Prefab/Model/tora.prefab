@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 327960299115343437}
   - component: {fileID: -1827294558984385739}
   m_Layer: 10
-  m_Name: Sphere (3)
+  m_Name: tora
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -145,3 +145,4 @@ MonoBehaviour:
   EnemyHP: 1
   effectPrefab: {fileID: 1775406099119076, guid: 379785de5e39005469c875710d3cc5a7,
     type: 3}
+  scoreValue: 3
